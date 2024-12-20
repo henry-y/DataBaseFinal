@@ -69,7 +69,7 @@
 
 ## API接口设计
 
-将提供RESTful API，包括但不限于：
+将提供RESTful API，包括：
 
 ### 车辆相关
 - GET /api/vehicles - 获取车辆列表
