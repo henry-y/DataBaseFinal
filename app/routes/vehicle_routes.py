@@ -61,6 +61,12 @@ def update_vehicle(id):
     data = request.get_json()
 
     try:
+        # 验证类型不能为空
+        if 'type' in data:
+            if not data['type'].strip():
+                return jsonify({'error': 'Vehicle type cannot be empty'}), 400
+            vehicle.type = data['type']
+            
         # 验证价格
         if 'price_per_day' in data:
             try:
@@ -88,8 +94,6 @@ def update_vehicle(id):
                 }), 400
 
         # 更新可修改的字段
-        if 'type' in data:
-            vehicle.type = data['type']
         if 'brand' in data:
             vehicle.brand = data['brand']
         if 'model' in data:
